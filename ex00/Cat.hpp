@@ -6,7 +6,7 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 15:12:43 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/09 18:30:12 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/10 15:24:43 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Cat &operator=(const Cat &src);
 	~Cat();
 
-	void makesound();
+	void makesound() const;
 };
 
 

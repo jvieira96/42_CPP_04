@@ -6,7 +6,7 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 17:59:19 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/09 18:19:59 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/10 15:27:38 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ Animal::~Animal() {
 				<< "Animal destroyed"
 				<< RESET
 				<< std::endl;
+}
+
+std::string Animal::getType() const {
+	return _type;
 }
 
 void Animal::makesound() const {

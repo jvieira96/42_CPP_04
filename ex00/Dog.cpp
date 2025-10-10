@@ -6,7 +6,7 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 18:10:15 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/09 18:26:25 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/10 15:25:13 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Dog::~Dog() {
 				<< std::endl;
 }
 
-void Dog::makesound() {
+void Dog::makesound() const {
 	std::cout	<< YELLOW
 				<< "WOOF WOOF WOOF!!!"
 				<< RESET

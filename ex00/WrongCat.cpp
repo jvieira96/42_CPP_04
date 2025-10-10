@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 18:26:40 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/10 15:24:51 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/10 15:54:36 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() {
-	_type = "Cat";
+WrongCat::WrongCat() {
+	_type = "WrongCat";
 	std::cout	<< GREEN
-				<< "Cat created"
+				<< "WrongCat created"
 				<< RESET
 				<< std::endl;
 }
 
-Cat::Cat(const Cat &copy) : Animal() {
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal() {
 	_type = copy._type;
 	std::cout	<< GREEN
-				<< "Cat copy constructor called"
+				<< "WrongCat copy constructor called"
 				<< RESET
 				<< std::endl;
 }
 
-Cat &Cat::operator=(const Cat &src) {
+WrongCat &WrongCat::operator=(const WrongCat &src) {
 	if (this != &src)
 		_type = src._type;
 	std::cout	<< GREEN
-				<< "Cat assign operator called"
+				<< "WrongCat assign operator called"
 				<< RESET
 				<< std::endl;
 	return *this;
 }
 
-Cat::~Cat() {
+WrongCat::~WrongCat() {
 	std::cout	<< RED
-				<< "Cat was detroyed"
+				<< "WrongCat was detroyed"
 				<< RESET
 				<< std::endl;
 }
 
-void Cat::makesound() const {
+void WrongCat::makesound() const {
 	std::cout	<< YELLOW
-				<< "MEOW MEOW MEOW!!!"
+				<< "Wrong cat sound!!!"
 				<< RESET
 				<< std::endl;
 }																

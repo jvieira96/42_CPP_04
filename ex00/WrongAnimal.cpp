@@ -1,53 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 18:26:40 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/10 15:24:51 by jpedro-f         ###   ########.fr       */
+/*   Created: 2025/10/09 17:59:19 by jpedro-f          #+#    #+#             */
+/*   Updated: 2025/10/10 15:43:29 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
-Cat::Cat() {
-	_type = "Cat";
+WrongAnimal::WrongAnimal() {
 	std::cout	<< GREEN
-				<< "Cat created"
+				<< "WrongAnimal created"
 				<< RESET
 				<< std::endl;
 }
 
-Cat::Cat(const Cat &copy) : Animal() {
-	_type = copy._type;
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
+	*this = copy;
 	std::cout	<< GREEN
-				<< "Cat copy constructor called"
+				<< "WrongAnimal copy constructor called"
 				<< RESET
 				<< std::endl;
 }
 
-Cat &Cat::operator=(const Cat &src) {
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src) {
 	if (this != &src)
-		_type = src._type;
+		this->_type = src._type;
 	std::cout	<< GREEN
-				<< "Cat assign operator called"
+				<< "WrongAnimal assign operator called"
 				<< RESET
 				<< std::endl;
 	return *this;
 }
 
-Cat::~Cat() {
+WrongAnimal::~WrongAnimal() {
 	std::cout	<< RED
-				<< "Cat was detroyed"
+				<< "WrongAnimal destroyed"
 				<< RESET
 				<< std::endl;
 }
 
-void Cat::makesound() const {
+std::string WrongAnimal::getType() const {
+	return _type;
+}
+
+void WrongAnimal::makesound() const {
 	std::cout	<< YELLOW
-				<< "MEOW MEOW MEOW!!!"
+				<< "Wrong sound"
 				<< RESET
 				<< std::endl;
-}																
+}

@@ -1,56 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 17:59:19 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/13 17:09:42 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/13 17:03:43 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "AAnimal.hpp"
 
-WrongAnimal::WrongAnimal() {
+AAnimal::AAnimal() {
 	std::cout	<< GREEN
-				<< "WrongAnimal created"
+				<< "Animal created"
 				<< RESET
 				<< std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
+AAnimal::AAnimal(const AAnimal &copy) {
 	*this = copy;
 	std::cout	<< GREEN
-				<< "WrongAnimal copy constructor called"
+				<< "Animal copy constructor called"
 				<< RESET
 				<< std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src) {
+AAnimal &AAnimal::operator=(const AAnimal &src) {
 	if (this != &src)
 		this->_type = src._type;
 	std::cout	<< GREEN
-				<< "WrongAnimal assign operator called"
+				<< "Animal assign operator called"
 				<< RESET
 				<< std::endl;
 	return *this;
 }
 
-WrongAnimal::~WrongAnimal() {
+AAnimal::~AAnimal() {
 	std::cout	<< RED
-				<< "WrongAnimal destroyed"
+				<< "Animal destroyed"
 				<< RESET
 				<< std::endl;
 }
 
-std::string WrongAnimal::getType() const {
+std::string AAnimal::getType() const {
 	return _type;
-}
-
-void WrongAnimal::makesound() const {
-	std::cout	<< YELLOW
-				<< "Wrong no sound"
-				<< RESET
-				<< std::endl;
 }

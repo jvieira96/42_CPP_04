@@ -1,56 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 17:59:19 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/13 17:09:42 by jpedro-f         ###   ########.fr       */
+/*   Created: 2025/10/09 18:10:15 by jpedro-f          #+#    #+#             */
+/*   Updated: 2025/10/13 17:04:56 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "Dog.hpp"
 
-WrongAnimal::WrongAnimal() {
+Dog::Dog() : AAnimal() {
+	_brain = new Brain();
+	_type = "Dog";
 	std::cout	<< GREEN
-				<< "WrongAnimal created"
+				<< "Dog created"
 				<< RESET
 				<< std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
-	*this = copy;
+Dog::Dog(const Dog &copy) : AAnimal() {
+	_brain = new Brain(*copy._brain);
+	_type = copy._type;
 	std::cout	<< GREEN
-				<< "WrongAnimal copy constructor called"
+				<< "Dog copy constructor called"
 				<< RESET
 				<< std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src) {
-	if (this != &src)
-		this->_type = src._type;
+Dog &Dog::operator=(const Dog &src) {
+	if (this != &src) {
+		delete _brain;
+		_brain = new Brain(*src._brain);
+		_type = src._type;
+	}
 	std::cout	<< GREEN
-				<< "WrongAnimal assign operator called"
+				<< "Dog assign operator called"
 				<< RESET
 				<< std::endl;
 	return *this;
 }
 
-WrongAnimal::~WrongAnimal() {
+Dog::~Dog() {
+	delete _brain;
 	std::cout	<< RED
-				<< "WrongAnimal destroyed"
+				<< "Dog was detroyed"
 				<< RESET
 				<< std::endl;
 }
 
-std::string WrongAnimal::getType() const {
-	return _type;
-}
-
-void WrongAnimal::makesound() const {
+void Dog::makesound() const {
 	std::cout	<< YELLOW
-				<< "Wrong no sound"
+				<< "WOOF WOOF WOOF!!!"
 				<< RESET
 				<< std::endl;
+}
+
+Brain *Dog::get_Brain() const {
+	return _brain;
 }

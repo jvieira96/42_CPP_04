@@ -6,7 +6,7 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:12:22 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/10 16:32:41 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/13 15:23:46 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-#include "main.h"
 
 void subject_main() {
 

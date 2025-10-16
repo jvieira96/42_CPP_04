@@ -6,13 +6,11 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:41:24 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/14 14:33:57 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/16 14:09:06 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "Icharacter.hpp"
-#include "Character.hpp"
+#include "../inc/Character.hpp"
 
 Character::Character() : _name("Nameless"), _dropcount(0) {
 	for (int i = 0; i < 4 ; i++) 
@@ -25,7 +23,7 @@ Character::Character() : _name("Nameless"), _dropcount(0) {
 				<< std::endl;
 }
 
-Character::Character(std::string &name) : _name(name), _dropcount(0) {
+Character::Character(std::string const &name) : _name(name), _dropcount(0) {
 	for (int i = 0; i < 4 ; i++) 
 		_inventory[i] = NULL;
 	for (int i = 0; i < 100 ; i++) 
@@ -69,11 +67,15 @@ Character& Character::operator=(Character const &src) {
 }
 
 Character::~Character() {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		delete _inventory[i];
+		_inventory[i] = NULL;
+	}
 
-	for (int i = 0; i < _dropcount ; i++) 
+	for (int i = 0; i < _dropcount ; i++) {
 		delete _floor[i];
+		_floor[i] = NULL;
+	}
 
 	std::cout	<< RED
 				<< "Character destructor called"
@@ -122,9 +124,7 @@ void Character::unequip(int idx) {
 	_inventory[idx] = NULL;
 	std::cout	<< YELLOW
 				<< _name
-				<< " unequiped "
-				<< _inventory[idx]->getType()
-				<< " in slot "
+				<< " unequiped the slot "
 				<< idx
 				<< RESET
 				<< std::endl;
@@ -149,6 +149,6 @@ void Character::use(int idx, ICharacter& target) {
 				<< std::endl;
 }
 
-std::string const& Character::getName() const {
+std::string const& Character::getName() const { 
 	return _name;
 }

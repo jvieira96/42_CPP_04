@@ -6,11 +6,11 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:54:59 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/14 15:39:00 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/16 13:48:03 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MateriaSource.hpp"
+#include "../inc/MateriaSource.hpp"
 
 MateriaSource::MateriaSource() {
 	for (int i = 0; i < 4; i++)
@@ -49,18 +49,21 @@ MateriaSource& MateriaSource::operator=(MateriaSource const &src) {
 				<< "MateriaSource assignment operator called"
 				<< RESET
 				<< std::endl;
+	return *this;
 }
 
 MateriaSource::~MateriaSource() {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		delete _templates[i];
+		_templates[i] = NULL;
+	}
 	std::cout	<< RED
 				<< "MateriaSource destroyer called"
 				<< RESET
 				<< std::endl;
 }
 
-void MateriaSource::learMateria(AMateria *m) {
+void MateriaSource::learnMateria(AMateria *m) {
 	if (!m) {
 		std::cout 	<< RED
 					<< "ERROR: UNKNOWN MATERIA"
@@ -88,7 +91,7 @@ void MateriaSource::learMateria(AMateria *m) {
 AMateria* MateriaSource::createMateria(std::string const &type) {
 	for (int i = 0; i < 4; i++) {
 		if (_templates[i]->getType() == type)
-			return _templates[i];
+			return _templates[i]->clone();
 	}
 	std::cout	<< RED
 				<< "cant create new materia, type not found"

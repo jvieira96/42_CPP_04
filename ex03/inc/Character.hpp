@@ -6,16 +6,14 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:04:08 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/14 13:43:22 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:22:34 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include <iostream>
-#include "AMateria.hpp"
-#include "Icharacter.hpp"
+#include "ICharacter.hpp"
 
 class Character : public ICharacter { 
 
@@ -29,7 +27,7 @@ private:
 public:
 
 	Character();
-	Character(std::string &name);
+	Character(std::string const &name);
 	Character(Character const &copy);
 	Character& operator=(Character const &src);
 	~Character();

@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 15:41:07 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/14 15:43:06 by jpedro-f         ###   ########.fr       */
+/*   Created: 2025/10/14 14:39:54 by jpedro-f          #+#    #+#             */
+/*   Updated: 2025/10/16 12:26:58 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class IMateriaSource
-{
-public:
-virtual ~IMateriaSource() {}
-virtual void learnMateria(AMateria*) = 0;
-virtual AMateria* createMateria(std::string const & type) = 0;
+class MateriaSource : public IMateriaSource {
+
+private: 
+
+	AMateria *_templates[4];
+
+public: 
+
+	MateriaSource();
+	MateriaSource(MateriaSource const &copy);
+	MateriaSource& operator=(MateriaSource const &src);
+	~MateriaSource();
+
+	void learnMateria(AMateria *m);
+	AMateria* createMateria(std::string const & type);
+
 };
+
 
 #endif

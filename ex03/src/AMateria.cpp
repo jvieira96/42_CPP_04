@@ -6,11 +6,11 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:59:56 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/14 11:57:48 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:51:20 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "../inc/AMateria.hpp"
 
 AMateria::AMateria() : _type("") {
 	std::cout	<< GREEN
@@ -52,4 +52,13 @@ AMateria::~AMateria() {
 
 std::string const& AMateria::getType() const {
 	return _type;
+}
+
+void AMateria::use(ICharacter& target) {
+	std::cout	<< MAGENTA
+				<< "* Nothing happends to "
+				<< target.getName()
+				<< " *"
+				<< RESET
+				<< std::endl;
 }

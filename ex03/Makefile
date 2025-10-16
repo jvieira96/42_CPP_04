@@ -14,13 +14,14 @@
 #                                NAMES & PATHS                                 #
 #==============================================================================#
 
-NAME = 	Animals
+NAME = 	ex03
 
-SRCS =	main.cpp \
-		AAnimal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		Brain.cpp
+SRCS =	src/main.cpp \
+		src/AMateria.cpp \
+		src/Character.cpp \
+		src/Cure.cpp \
+		src/Ice.cpp \
+		src/MateriaSource.cpp
 
 OBJS =  $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jpedro-f <jpedro-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:55:17 by jpedro-f          #+#    #+#             */
-/*   Updated: 2025/10/14 14:38:52 by jpedro-f         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:35:14 by jpedro-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define AMATERIA_HPP
 
 #include <iostream>
-#include "Icharacter.hpp"
+#include "ICharacter.hpp"
 
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"
@@ -26,6 +26,7 @@
 #define CYAN    "\033[36m"
 #define WHITE   "\033[37m"
 
+class ICharacter;
 
 class AMateria {
 
@@ -40,8 +41,8 @@ public:
 	AMateria(AMateria const &copy);
 	AMateria& operator= (AMateria const &src);
 	virtual ~AMateria();
-	//[...]
-	std::string const & getType() const; //Returns the materia type
+	
+	std::string const & getType() const;
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target);
 
